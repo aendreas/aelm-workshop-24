@@ -25,8 +25,8 @@ jobs:
           go-version: ${{ matrix.go-version }}
 
       - name: Build
-        run: go build -v workshop-service
-
+        run: go build -v ./...
+        working-directory: workshop-service
       - name: Test with Go
         run: go test -json > TestResults-${{ matrix.go-version }}.json
       - name: Upload Go test results
